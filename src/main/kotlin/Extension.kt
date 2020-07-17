@@ -39,7 +39,30 @@ class Student(var name:String){
     }
 }
 
+
+/*
+Extended property
+ -> Due to the lack of backing fields,the extended attributes can't be initialised and store values
+ 必须为扩展属性显示声明get或者set -You must declare get or Set for extended property display
+ val - get
+ var - set & get
+*/
+val Student.grade:Int
+get() {
+    println("The get method of grade")
+    return 1
+}
+var Student.score:Float
+    get() = 86.1f
+    set(value) {
+        name = "$name _ $value"
+//        name = "${name}_${value}"
+    }
+
 fun main() {
     val s = Student("xw")
     s.work()
+    s.grade
+    s.score = 11.1f
+    println(s.name)
 }
