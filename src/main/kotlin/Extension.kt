@@ -29,7 +29,19 @@ class Student(var name:String){
     fun work(){
         println("working")
     }
-    // Didn't add  this to this class(Dynamic addition动态的添加)
+
+    companion object{
+        // Before this we need a companion object
+        fun show(){
+            println("Static method test")
+        }
+        val url:String
+        get() = "www.baidu.com"
+
+    }
+
+
+    // Doesn't add  this to this class(Dynamic addition动态的添加)
     // When two methods are the same,the priority of original method is higher
     fun Student.eat(){
         println("eating")
@@ -65,4 +77,9 @@ fun main() {
     s.grade
     s.score = 11.1f
     println(s.name)
+
+
+    Student.show()
+    Student.url.also {
+        println(it) }
 }
